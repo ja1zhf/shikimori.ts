@@ -1,0 +1,33 @@
+{
+  "name": "shikimori.ts",
+  "description": "shikimori api package",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ja1z666/shikimori.ts.git"
+  },
+  "keywords": [
+    "shikimori",
+    "shiki",
+    "shiki-api",
+    "shikimori-api"
+  ],
+  "author": "Ja1z666",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ja1z666/shikimori.ts/issues"
+  },
+  "homepage": "https://github.com/Ja1z666/shikimori.ts#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10"
+  }
+}
