@@ -33,24 +33,76 @@ const shikimori = {
     },
     
     getAnime:async (options:options) =>{
-        let animeList = (await axios.get(`https://shikimori.one/animes/autocomplete/v2?search=${options.name}`)).data;
-        let $ = cheerio.load(animeList);
-        let animes:string[] = [];
-        $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {animes.push(element.attribs.href)});
-        if(animes.length == 0) return null;
-        // for(let anime in animes){
-        //     console.log(anime)
-        // }
-        console.log(animes);
+        if(options.name && !options.id){
+            let animeList = (await axios.get(encodeURI(`https://shikimori.one/animes/autocomplete/v2?search=${options.name}`))).data;
+            let $ = cheerio.load(animeList);
+            let animes:string[] = [];
+            $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {animes.push(element.attribs.href)});
+            if(animes.length == 0) return undefined;
+            let anime = animes[0].replace(/[^0-9]/g, '');
+            try{
+                return (await axios.get(`${url}animes/${anime}`)).data;
+            }catch(err){
+                return undefined;
+            }
+        }else if(!options.name && options.id || options.name && options.id){
+            try{
+                return (await axios.get(`${url}animes/${options.id}`)).data;
+            }catch(err){
+                return undefined;
+            }
+        }else{
+            return undefined;
+        }
     },
 
     getManga:async (options:options) =>{
-
+        if(options.name && !options.id){
+            let mangaList = (await axios.get(encodeURI(`https://shikimori.one/mangas/autocomplete/v2?search=${options.name}`))).data;
+            let $ = cheerio.load(mangaList);
+            let mangas:string[] = [];
+            $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {mangas.push(element.attribs.href)});
+            if(mangas.length == 0) return undefined;
+            let manga = mangas[0].replace(/[^0-9]/g, '');
+            try{
+                return (await axios.get(`${url}mangas/${manga}`)).data;
+            }catch(err){
+                return undefined;
+            }
+        }else if(!options.name && options.id || options.name && options.id){
+            try{
+                return (await axios.get(`${url}mangas/${options.id}`)).data;
+            }catch(err){
+                return undefined;
+            }
+        }else{
+            return undefined;
+        }
     },
 
     getRanobe:async (options:options) =>{
-
+        if(options.name && !options.id){
+            let ranobeList = (await axios.get(encodeURI(`https://shikimori.one/ranobe/autocomplete/v2?search=${options.name}`))).data;
+            let $ = cheerio.load(ranobeList);
+            let ranobe:string[] = [];
+            $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {ranobe.push(element.attribs.href)});
+            if(ranobe.length == 0) return undefined;
+            let ranob = ranobe[0].replace(/[^0-9]/g, '');
+            try{
+                return (await axios.get(`${url}ranobe/${ranob}`)).data;
+            }catch(err){
+                return undefined;
+            }
+        }else if(!options.name && options.id || options.name && options.id){
+            try{
+                return (await axios.get(`${url}ranobe/${options.id}`)).data;
+            }catch(err){
+                return undefined;
+            }
+        }else{
+            return undefined;
+        }
     }
 }
 
-shikimori.getAnime({ name: "horimiya" }).then(response => console.log(response))
+shikimori.getRanobe({name: "Этот глупый свин"}).then(response => console.log(response))
