@@ -8,7 +8,25 @@ type options = {
     id?:string;
 };
 
-const shikimori = {
+type getUserOutput = {
+    id: Number,
+    nickname: String,
+    avatar: String,
+    image: Object,
+    last_online_at: String,
+    url: String,
+    name: String,
+    sex: String,
+    years: Number,
+    last_online: String,
+    website: String,
+    location: String,
+    banned: Boolean,
+    stats: Object,
+    history: Object[]
+}
+
+export const Shikimori = {
     getUser:async (options:options) => {
         let user = (await axios.get(`${url}users/${options.name}`)).data;
         let userHistory = (await axios.get(`${url}users/${options.name}/history`)).data;
@@ -104,5 +122,3 @@ const shikimori = {
         }
     }
 }
-
-shikimori.getRanobe({name: "Этот глупый свин"}).then(response => console.log(response))

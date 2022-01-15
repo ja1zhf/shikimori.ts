@@ -1,0 +1,1 @@
+import {Shikimori} from "./lib/shikimori";
