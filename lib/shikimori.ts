@@ -2,35 +2,13 @@ import * as axs from "axios";
 import * as cheerio from 'cheerio';
 const axios = axs.default;
 const url = "https://shikimori.one/api/";
-
-type options = {
-    name?:string;
-    id?:string;
-};
-
-type getUserOutput = {
-    id: Number,
-    nickname: String,
-    avatar: String,
-    image: Object,
-    last_online_at: String,
-    url: String,
-    name: String,
-    sex: String,
-    years: Number,
-    last_online: String,
-    website: String,
-    location: String,
-    banned: Boolean,
-    stats: Object,
-    history: Object[]
-}
+import {options, getUserOutput, getAnimeOutput, getMangaOutput, getRanobeOutput} from './types'
 
 export const Shikimori = {
     getUser:async (options:options) => {
         let user = (await axios.get(`${url}users/${options.name}`)).data;
         let userHistory = (await axios.get(`${url}users/${options.name}/history`)).data;
-        let userObj = {
+        let userObj:getUserOutput = {
             id: user.id,
             nickname: user.nickname,
             avatar: user.avatar,
@@ -50,11 +28,11 @@ export const Shikimori = {
         return userObj;
     },
     
-    getAnime:async (options:options) =>{
+    getAnime:async (options:options):Promise<getAnimeOutput | undefined> =>{
         if(options.name && !options.id){
             let animeList = (await axios.get(encodeURI(`https://shikimori.one/animes/autocomplete/v2?search=${options.name}`))).data;
             let $ = cheerio.load(animeList);
-            let animes:string[] = [];
+            let animes:String[] = [];
             $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {animes.push(element.attribs.href)});
             if(animes.length == 0) return undefined;
             let anime = animes[0].replace(/[^0-9]/g, '');
@@ -74,11 +52,11 @@ export const Shikimori = {
         }
     },
 
-    getManga:async (options:options) =>{
+    getManga:async (options:options):Promise<getMangaOutput | undefined> =>{
         if(options.name && !options.id){
             let mangaList = (await axios.get(encodeURI(`https://shikimori.one/mangas/autocomplete/v2?search=${options.name}`))).data;
             let $ = cheerio.load(mangaList);
-            let mangas:string[] = [];
+            let mangas:String[] = [];
             $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {mangas.push(element.attribs.href)});
             if(mangas.length == 0) return undefined;
             let manga = mangas[0].replace(/[^0-9]/g, '');
@@ -98,11 +76,11 @@ export const Shikimori = {
         }
     },
 
-    getRanobe:async (options:options) =>{
+    getRanobe:async (options:options):Promise<getRanobeOutput | undefined> =>{
         if(options.name && !options.id){
             let ranobeList = (await axios.get(encodeURI(`https://shikimori.one/ranobe/autocomplete/v2?search=${options.name}`))).data;
             let $ = cheerio.load(ranobeList);
-            let ranobe:string[] = [];
+            let ranobe:String[] = [];
             $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {ranobe.push(element.attribs.href)});
             if(ranobe.length == 0) return undefined;
             let ranob = ranobe[0].replace(/[^0-9]/g, '');
