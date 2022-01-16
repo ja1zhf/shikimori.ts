@@ -25,8 +25,6 @@
 
 #### npm
 
-For module bundlers such as Webpack or Browserify.
-
 ```shell
 npm i shikimori.ts
 ```
