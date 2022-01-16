@@ -1,6 +1,6 @@
 {
   "name": "shikimori.ts",
-  "description": "shikimori api package",
+  "description": "JavaScript & TypeScript wrapper for shikimori.one",
   "version": "1.0.0",
   "main": "lib/shikimori.js",
   "types": "lib/shikimori.d.ts",
