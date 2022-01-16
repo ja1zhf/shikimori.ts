@@ -26,7 +26,8 @@
     "shikimori",
     "shiki",
     "shiki-api",
-    "shikimori-api"
+    "shikimori-api",
+    "wrapper"
   ],
   "author": "Ja1z666",
   "license": "ISC",
