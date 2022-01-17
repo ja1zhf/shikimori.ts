@@ -1,7 +1,7 @@
 {
   "name": "shikimori.ts",
   "description": "JavaScript & TypeScript wrapper for shikimori.one",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/shikimori.js",
   "types": "lib/shikimori.d.ts",
   "directories": {
