@@ -2,7 +2,7 @@ import * as axs from 'axios';
 import * as cheerio from 'cheerio';
 const axios = axs.default;
 const url = 'https://shikimori.one/api/';
-import { Options, getUserOutput, getAnimeOutput, getMangaOutput, getRanobeOutput } from './types';
+import { Options, getUserOutput, getAnimeOutput, getMangaOutput, getRanobeOutput, getCalendarOutput } from './types';
 
 export const Shikimori = {
   getUser: async (options: Options) => {
@@ -111,4 +111,9 @@ export const Shikimori = {
       return undefined;
     }
   },
+
+  getCalendar: async (): Promise<getCalendarOutput> => {
+    const calendar = (await axios.get(`${url}calendar`)).data;
+    return calendar;
+  }
 };

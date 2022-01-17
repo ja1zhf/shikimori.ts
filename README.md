@@ -20,6 +20,7 @@
   - [getAnime](#getAnime)
   - [getManga](#getManga)
   - [getRanobe](#getRanobe)
+  - [getCalendar](#getCalendar)
 
 ## Quick start
 
@@ -187,6 +188,35 @@ Shikimori.getRanobe({ name: 'Seishun Buta Yarou Series' }).then(ranobe => consol
 //     image: { ... }
 //     ...
 // }
+```
+* * *
+### getCalendar
+
+Returns the animes array.
+
+#### Returns
+- `Promise<Array>`
+
+#### Example
+```TS
+Shikimori.getCalendar().then(calendar => console.log(calendar));
+// => [
+//   {
+//     next_episode: 1,
+//     next_episode_at: "2022-01-13T09:00:00.000+03:00",
+//     duration: 120,
+//     anime: { ... },
+//     ...
+//   },
+//   {
+//     next_episode: 1,
+//     next_episode_at: "2022-01-14T09:00:00.000+03:00",
+//     duration: null,
+//     anime: { ... },
+//     ...
+//   },
+//   ...
+// ]
 ```
 * * *
 
