@@ -2,6 +2,8 @@
 
 > shikimori.ts - JavaScript & TypeScript wrapper for shikimori.one
 
+[![npm version](https://badge.fury.io/js/shikimori.ts.svg)](https://www.npmjs.com/package/shikimori.ts)
+
 ## Features
 
 - Full TypeScript support
@@ -34,7 +36,7 @@ npm i shikimori.ts
 #### JavaScript
 
 ```js
-const Shikimori = require('shikimori.ts');
+const { Shikimori } = require('shikimori.ts');
 ```
 
 #### TypeScript
@@ -63,14 +65,14 @@ Returns the user object.
 
 #### Example
 ```TS
-Shikimori.getUser({ id: '823641' }).than(user => console.log(user));
+Shikimori.getUser({ id: '823641' }).then(user => console.log(user));
 // => {
 //     id: 823641,
 //     nickname: "simplname",
 //     avatar: "https://...",
 //     ...
 // }
-Shikimori.getUser({ name: 'simplname' }).than(user => console.log(user));
+Shikimori.getUser({ name: 'simplname' }).then(user => console.log(user));
 // => {
 //     id: 823641,
 //     nickname: "simplname",
@@ -97,7 +99,7 @@ Returns the anime object.
 
 #### Example
 ```TS
-Shikimori.getAnime({ id: '20' }).than(anime => console.log(anime));
+Shikimori.getAnime({ id: '20' }).then(anime => console.log(anime));
 // => {
 //     id: 20,
 //     name: "Naruto",
@@ -105,7 +107,7 @@ Shikimori.getAnime({ id: '20' }).than(anime => console.log(anime));
 //     image: { ... },
 //     ...
 // }
-Shikimori.getAnime({ name: 'Naruto' }).than(anime => console.log(anime));
+Shikimori.getAnime({ name: 'Naruto' }).then(anime => console.log(anime));
 // => {
 //     id: 20,
 //     name: "Naruto",
@@ -133,7 +135,7 @@ Returns the manga object.
 
 #### Example
 ```TS
-Shikimori.getManga({ id: '33327' }).than(manga => console.log(manga));
+Shikimori.getManga({ id: '33327' }).then(manga => console.log(manga));
 // => {
 //     id: 33327,
 //     name: "Tokyo Ghoul",
@@ -141,7 +143,7 @@ Shikimori.getManga({ id: '33327' }).than(manga => console.log(manga));
 //     image: { ... },
 //     ...
 // }
-Shikimori.getManga({ name: 'Tokyo Ghoul' }).than(manga => console.log(manga));
+Shikimori.getManga({ name: 'Tokyo Ghoul' }).then(manga => console.log(manga));
 // => {
 //     id: 33327,
 //     name: "Tokyo Ghoul",
@@ -169,7 +171,7 @@ Returns the ranobe object.
 
 #### Example
 ```TS
-Shikimori.getRanobe({ id: '70399' }).than(ranobe => console.log(ranobe));
+Shikimori.getRanobe({ id: '70399' }).then(ranobe => console.log(ranobe));
 // => {
 //     id: 70399,
 //     name: "Seishun Buta Yarou Series",
@@ -177,7 +179,7 @@ Shikimori.getRanobe({ id: '70399' }).than(ranobe => console.log(ranobe));
 //     image: { ... }
 //     ...
 // }
-Shikimori.getRanobe({ name: 'Seishun Buta Yarou Series' }).than(ranobe => console.log(ranobe));
+Shikimori.getRanobe({ name: 'Seishun Buta Yarou Series' }).then(ranobe => console.log(ranobe));
 // => {
 //     id: 70399,
 //     name: "Seishun Buta Yarou Series",
