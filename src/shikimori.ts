@@ -115,5 +115,5 @@ export const Shikimori = {
   getCalendar: async (): Promise<getCalendarOutput> => {
     const calendar = (await axios.get(`${url}calendar`)).data;
     return calendar;
-  }
+  },
 };

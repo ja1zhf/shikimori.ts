@@ -355,10 +355,10 @@ export type getCalendarOutput = [
       name: string;
       russian: string;
       image: {
-        original: string,
-        preview: string,
-        x96: string,
-        x48: string,
+        original: string;
+        preview: string;
+        x96: string;
+        x48: string;
       };
       url: string;
       kind: string;
@@ -367,7 +367,7 @@ export type getCalendarOutput = [
       episodes: number;
       episodes_aired: number;
       aired_on: string;
-      released_on: string
-    }
-  }
+      released_on: string;
+    };
+  },
 ];
