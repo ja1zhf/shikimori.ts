@@ -20,6 +20,7 @@
   - [getAnime](#getAnime)
   - [getManga](#getManga)
   - [getRanobe](#getRanobe)
+  - [getCharacter](#getCharacter)
   - [getCalendar](#getCalendar)
 
 ## Quick start
@@ -30,6 +31,12 @@
 
 ```shell
 npm i shikimori.ts
+```
+
+#### yarn
+
+```shell
+yarn add shikimori.ts
 ```
 
 ### Initialization
@@ -177,7 +184,7 @@ Shikimori.getRanobe({ id: '70399' }).then(ranobe => console.log(ranobe));
 //     id: 70399,
 //     name: "Seishun Buta Yarou Series",
 //     russian: "Этот глупый свин",
-//     image: { ... }
+//     image: { ... },
 //     ...
 // }
 Shikimori.getRanobe({ name: 'Seishun Buta Yarou Series' }).then(ranobe => console.log(ranobe));
@@ -185,7 +192,43 @@ Shikimori.getRanobe({ name: 'Seishun Buta Yarou Series' }).then(ranobe => consol
 //     id: 70399,
 //     name: "Seishun Buta Yarou Series",
 //     russian: "Этот глупый свин",
-//     image: { ... }
+//     image: { ... },
+//     ...
+// }
+```
+* * *
+### getCharacter
+
+Returns the character object.
+
+
+#### Options
+- `id`
+  - Type: `String`
+  - Description: Shikimori character ID.
+- `name`
+  - Type: `String`
+  - Description: Shikimori character name(you can also use Russian names).
+
+#### Returns
+- `Promise<Object>`
+
+#### Example
+```TS
+Shikimori.getCharacter({ id: '17' }).then(character => console.log(character));
+// => {
+//     id: 17,
+//     name: "Naruto Uzumaki",
+//     russian: "Наруто Узумаки",
+//     image: { ... },
+//     ...
+// }
+Shikimori.getCharacter({ name: 'Naruto Uzumaki' }).then(character => console.log(character));
+// => {
+//     id: 17,
+//     name: "Naruto Uzumaki",
+//     russian: "Наруто Узумаки",
+//     image: { ... },
 //     ...
 // }
 ```

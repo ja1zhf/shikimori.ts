@@ -345,6 +345,88 @@ export type getRanobeOutput = {
   user_rate: any | null;
 };
 
+export type getCharacterOutput = {
+  id: number;
+  name: string;
+  russian: string;
+  image: {
+    original: string;
+    preview: string;
+    x96: string;
+    x48: string
+  };
+  url: string;
+  altname: string;
+  japanese: string;
+  description: string;
+  description_html: string;
+  description_source: string;
+  favoured: boolean;
+  thread_id: number;
+  topic_id: number;
+  updated_at: string;
+  seyu: [
+    {
+      id: number;
+      name: string;
+      russian: string;
+      image: {
+        original: string;
+        preview: string;
+        x96: string;
+        x48: string
+      };
+      url: string
+    }
+  ];
+  animes: [
+    {
+      id: number;
+      name: string;
+      russian: string;
+      image: {
+        original: string;
+        preview: string;
+        x96: string;
+        x48: string
+      };
+      url: string;
+      kind: string;
+      score: string;
+      status: string;
+      episodes: number;
+      episodes_aired: number;
+      aired_on: string;
+      released_on: string;
+      roles: string[];
+      role: string
+    }
+  ];
+  mangas: [
+    {
+      id: number;
+      name: string;
+      russian: string;
+      image: {
+        original: string;
+        preview: string;
+        x96: string;
+        x48: string
+      };
+      url: string;
+      kind: string;
+      score: string;
+      status: string;
+      volumes: number;
+      chapters: number;
+      aired_on: string;
+      released_on: string;
+      roles: string[];
+      role: string
+    }
+  ]
+};
+
 export type getCalendarOutput = [
   {
     next_episode: number;

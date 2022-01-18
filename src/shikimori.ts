@@ -2,7 +2,7 @@ import * as axs from 'axios';
 import * as cheerio from 'cheerio';
 const axios = axs.default;
 const url = 'https://shikimori.one/api/';
-import { Options, getUserOutput, getAnimeOutput, getMangaOutput, getRanobeOutput, getCalendarOutput } from './types';
+import { Options, getUserOutput, getAnimeOutput, getMangaOutput, getRanobeOutput, getCharacterOutput, getCalendarOutput } from './types';
 
 export const Shikimori = {
   getUser: async (options: Options) => {
@@ -104,6 +104,34 @@ export const Shikimori = {
     } else if ((!options.name && options.id) || (options.name && options.id)) {
       try {
         return (await axios.get(`${url}ranobe/${options.id}`)).data;
+      } catch (err) {
+        return undefined;
+      }
+    } else {
+      return undefined;
+    }
+  },
+
+  getCharacter: async (options: Options): Promise<getCharacterOutput | undefined> => {
+    if (options.name && !options.id) {
+      const charactersList = (
+        await axios.get(encodeURI(`https://shikimori.one/characters/autocomplete/v2?search=${options.name}`))
+      ).data;
+      const $ = cheerio.load(charactersList);
+      const characters: string[] = [];
+      $('.b-db_entry-variant-list_item .info .name a').each((i, element) => {
+        characters.push(element.attribs.href);
+      });
+      if (characters.length === 0) return undefined;
+      const character = characters[0].replace(/[^0-9]/g, '');
+      try {
+        return (await axios.get(`${url}characters/${character}`)).data;
+      } catch (err) {
+        return undefined;
+      }
+    } else if ((!options.name && options.id) || (options.name && options.id)) {
+      try {
+        return (await axios.get(`${url}characters/${options.id}`)).data;
       } catch (err) {
         return undefined;
       }
