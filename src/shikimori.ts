@@ -2,7 +2,15 @@ import * as axs from 'axios';
 import * as cheerio from 'cheerio';
 const axios = axs.default;
 const url = 'https://shikimori.one/api/';
-import { Options, getUserOutput, getAnimeOutput, getMangaOutput, getRanobeOutput, getCharacterOutput, getCalendarOutput } from './types';
+import {
+  Options,
+  getUserOutput,
+  getAnimeOutput,
+  getMangaOutput,
+  getRanobeOutput,
+  getCharacterOutput,
+  getCalendarOutput,
+} from './types';
 
 export const Shikimori = {
   getUser: async (options: Options) => {

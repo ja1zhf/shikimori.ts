@@ -353,7 +353,7 @@ export type getCharacterOutput = {
     original: string;
     preview: string;
     x96: string;
-    x48: string
+    x48: string;
   };
   url: string;
   altname: string;
@@ -374,10 +374,10 @@ export type getCharacterOutput = {
         original: string;
         preview: string;
         x96: string;
-        x48: string
+        x48: string;
       };
-      url: string
-    }
+      url: string;
+    },
   ];
   animes: [
     {
@@ -388,7 +388,7 @@ export type getCharacterOutput = {
         original: string;
         preview: string;
         x96: string;
-        x48: string
+        x48: string;
       };
       url: string;
       kind: string;
@@ -399,8 +399,8 @@ export type getCharacterOutput = {
       aired_on: string;
       released_on: string;
       roles: string[];
-      role: string
-    }
+      role: string;
+    },
   ];
   mangas: [
     {
@@ -411,7 +411,7 @@ export type getCharacterOutput = {
         original: string;
         preview: string;
         x96: string;
-        x48: string
+        x48: string;
       };
       url: string;
       kind: string;
@@ -422,9 +422,9 @@ export type getCharacterOutput = {
       aired_on: string;
       released_on: string;
       roles: string[];
-      role: string
-    }
-  ]
+      role: string;
+    },
+  ];
 };
 
 export type getCalendarOutput = [
