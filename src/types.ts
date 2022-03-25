@@ -141,19 +141,19 @@ export type getUserOutput = {
       };
       last_online_at: string;
       url: string;
-    }
+    },
   ];
   clubs: [
     {
       id: number;
       name: string;
       logo: {
-        [x in 'original' | 'main' | 'x96' | 'x73' |'x48']: string;
+        [x in 'original' | 'main' | 'x96' | 'x73' | 'x48']: string;
       };
       is_censored: boolean;
       join_policy: string;
       comment_policy: string;
-    }
+    },
   ];
   favourites: {
     animes: [
@@ -163,7 +163,7 @@ export type getUserOutput = {
         russian: string;
         image: string;
         url: string;
-      }
+      },
     ];
     mangas: [
       {
@@ -172,7 +172,7 @@ export type getUserOutput = {
         russian: string;
         image: string;
         url: string;
-      }
+      },
     ];
     characters: [
       {
@@ -181,7 +181,7 @@ export type getUserOutput = {
         russian: string;
         image: string;
         url: string;
-      }
+      },
     ];
     people: [
       {
@@ -190,7 +190,7 @@ export type getUserOutput = {
         russian: string;
         image: string;
         url: string;
-      }
+      },
     ];
     mangakas: [
       {
@@ -199,7 +199,7 @@ export type getUserOutput = {
         russian: string;
         image: string;
         url: string;
-      }
+      },
     ];
     seyu: [
       {
@@ -208,7 +208,7 @@ export type getUserOutput = {
         russian: string;
         image: string;
         url: string;
-      }
+      },
     ];
     producers: [
       {
@@ -217,9 +217,9 @@ export type getUserOutput = {
         russian: string;
         image: string;
         url: string;
-      }
+      },
     ];
-  }
+  };
 };
 
 export type getAnimeOutput = {
