@@ -16,6 +16,9 @@ export const Shikimori = {
   getUser: async (options: Options) => {
     const user = (await axios.get(`${url}users/${options.name}`)).data;
     const userHistory = (await axios.get(`${url}users/${options.name}/history`)).data;
+    const friends = (await axios.get(`${url}users/${options.name}/friends`)).data;
+    const clubs = (await axios.get(`${url}users/${options.name}/clubs`)).data;
+    const favourites = (await axios.get(`${url}users/${options.name}/favourites`)).data;
     const userObj: getUserOutput = {
       id: user.id,
       nickname: user.nickname,
@@ -32,6 +35,9 @@ export const Shikimori = {
       banned: user.banned,
       stats: user.stats,
       history: userHistory,
+      friends: friends,
+      clubs: clubs,
+      favourites: favourites,
     };
     return userObj;
   },

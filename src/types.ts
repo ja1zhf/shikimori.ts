@@ -131,6 +131,95 @@ export type getUserOutput = {
       };
     },
   ];
+  friends: [
+    {
+      id: number;
+      nickname: string;
+      avatar: string;
+      image: {
+        [x in 'x160' | 'x148' | 'x80' | 'x64' | 'x48' | 'x32' | 'x16']: string;
+      };
+      last_online_at: string;
+      url: string;
+    }
+  ];
+  clubs: [
+    {
+      id: number;
+      name: string;
+      logo: {
+        [x in 'original' | 'main' | 'x96' | 'x73' |'x48']: string;
+      };
+      is_censored: boolean;
+      join_policy: string;
+      comment_policy: string;
+    }
+  ];
+  favourites: {
+    animes: [
+      {
+        id: number;
+        name: string;
+        russian: string;
+        image: string;
+        url: string;
+      }
+    ];
+    mangas: [
+      {
+        id: number;
+        name: string;
+        russian: string;
+        image: string;
+        url: string;
+      }
+    ];
+    characters: [
+      {
+        id: number;
+        name: string;
+        russian: string;
+        image: string;
+        url: string;
+      }
+    ];
+    people: [
+      {
+        id: number;
+        name: string;
+        russian: string;
+        image: string;
+        url: string;
+      }
+    ];
+    mangakas: [
+      {
+        id: number;
+        name: string;
+        russian: string;
+        image: string;
+        url: string;
+      }
+    ];
+    seyu: [
+      {
+        id: number;
+        name: string;
+        russian: string;
+        image: string;
+        url: string;
+      }
+    ];
+    producers: [
+      {
+        id: number;
+        name: string;
+        russian: string;
+        image: string;
+        url: string;
+      }
+    ];
+  }
 };
 
 export type getAnimeOutput = {

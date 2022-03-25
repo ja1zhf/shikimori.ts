@@ -4,6 +4,10 @@
 
 [![npm version](https://badge.fury.io/js/shikimori.ts.svg)](https://www.npmjs.com/package/shikimori.ts)
 
+## Last update
+
+- Added lists of friends, clubs and favorites to the `getUser()` function
+
 ## Features
 
 - Full TypeScript support
